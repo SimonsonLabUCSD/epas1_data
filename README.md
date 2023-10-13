@@ -1,4 +1,4 @@
-# Data Repository
+# EPAS1 Data Repository
 
 #### Functional *EPAS1*/*HIF2A* missense variant is associated with hematocrit in Andean highlanders
 

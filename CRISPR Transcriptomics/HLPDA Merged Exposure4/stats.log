@@ -1,0 +1,56 @@
+
+----------------------------------
+If Transfection Effect Were Considered
+----------------------------------
+At 12h:
+                                         diff       lwr       upr      p adj significant
+wt_non-transfected-het_transfected -0.8248127 -3.061869 1.4122442 0.53149498            
+wt_transfected-het_transfected     -1.9544555 -4.191512 0.2826013 0.08115065            
+wt_transfected-wt_non-transfected  -1.1296429 -3.366700 1.1074140 0.33547926            
+
+
+At 24h:
+                                        diff        lwr      upr     p adj significant
+wt_non-transfected-het_transfected  7.942189  -5.559945 21.44432 0.2462939            
+wt_transfected-het_transfected     10.406061  -3.096072 23.90819 0.1213074            
+wt_transfected-wt_non-transfected   2.463872 -11.038261 15.96601 0.8454353            
+
+----------------------------------
+If Transfection Effect Were NOT Considered
+----------------------------------
+At 12h:
+           diff        lwr     upr     p adj significant
+het-wt 1.389634 -0.2459816 3.02525 0.0844895            
+
+
+At 24h:
+            diff       lwr        upr      p adj significant
+het-wt -9.174125 -17.73241 -0.6158428 0.03895995           *
+
+
+----------------------------------
+
+Interactive Effect of Exposure Time and Genotype:
+Call:
+lm(formula = logfc ~ exposure + genotype + exposure:genotype, 
+    data = filter(d, !nontransfected))
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.5393 -0.6361  0.0000  0.8311  3.0182 
+
+Coefficients:
+                         Estimate Std. Error t value Pr(>|t|)    
+(Intercept)             1.000e+00  1.123e+00   0.890 0.390812    
+exposure12              1.542e+00  1.588e+00   0.971 0.350747    
+exposure24              1.310e+01  1.588e+00   8.244 2.76e-06 ***
+genotypehet             3.140e-16  1.588e+00   0.000 1.000000    
+exposure12:genotypehet  1.954e+00  2.246e+00   0.870 0.401362    
+exposure24:genotypehet -1.041e+01  2.246e+00  -4.632 0.000578 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 1.945 on 12 degrees of freedom
+Multiple R-squared:  0.8888,	Adjusted R-squared:  0.8425 
+F-statistic: 19.19 on 5 and 12 DF,  p-value: 2.381e-05
+
